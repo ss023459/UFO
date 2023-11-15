@@ -3,69 +3,9 @@ bool open = false;
 bool close = false;
 bool noFog = true;
 
-
-// ****************** things of note *********************
-// outer rings = 2x300 long
-// vent lights = 4x18 long
-// ramp lights = 68 long each, parrallel
-// dome lights = 154 long  
-
-// add parameters in to the functions
-// address the gap at the back on the ring LEDs
-// set LEDs by group - ring, dome, 4xjets, panels, ramp 
-
-// ******* todo *********
-// when there isnt fog - wait - repeat until fog ready 
-// serial commands to stop running and clear the vents and idle
-// functions/effects needed:
-//    flying rings - + minor adjustment thrusts
-//    landing rings - rapid 4 adjustment thrusts
-//    take off rings - full on flamey thrust
-// colors - gamma, remapping, and overall brightness control
-
-// see the rings light up with fixed steer x & y
-// sames for the dome
-// same for the thrusters
-// test perlin
-
-
-// rough schedule
-//    fly = 5 mins - until smoke ready
-//    land = 30 seconds
-//    park = 3 mins
-//    take off = 30 seconds
-
-// tue todo
-
-// laser broken
-// blue twinklies or rotating rings when strobing
-  // mnake the blue colors to strobes & twinkles
-// red twinklies rings when thusting
-// put a println that prints alive every 5 seconds - it keeps the serial port active
-// make sure ramp is up on power up 
-// a new simple spinning ring sequence
-// tune the effect of the landing seq
-  // run the fans longer on landing to clear the smoke
-  // ramp up front light to show the aliens face
-  // light up the alien face for a green strobe take off
-// ensure that fog is ready for the landing
-  // make a 45 second busy banging period with the dome light and bay light and relays clacking
-  // contingent on fog ready ideally
-// check all end times in seqs
-// make flying change colors
-
-// done - finish flying thrusters
-// done - get the fog production right for the thrusters
-// done - find the active printlns
-// done - set the 0 point for the dome lights to be at the back.
-// done - bugs on flying seq
-// done - fans not shutting off after ramp seq
-
 #include <OctoWS2811.h>
 #include <Wire.h>
 #include <FastLED.h> // for the noise functions
-
-
 
 enum relayPos {NC,NO};
 relayPos relayState[16] = {NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC,NC};
